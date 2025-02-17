@@ -1,24 +1,24 @@
 import mongoose from "mongoose";
-
 const itemsSchema = new mongoose.Schema(
   {
-    items: [
-      {
-        name: {
-          type: String,
-          required: true,
-        },
-        price: {
-          type: Number,
-          required: true,
-        },
-      },
-    ],
+    name: {
+      type: String,
+      required: true,
+    },
+    price: {
+      type: Number,
+      required: true,
+    },
   },
+
   {
     timestamps: true,
   }
 );
+const menuitems = mongoose.Schema({
+  id: mongoose.ObjectId.String,
+  items: [itemsSchema],
+});
 
-const items = mongoose.model("items", itemsSchema);
+const items = mongoose.model("items", menuitems);
 export default items;
