@@ -2,7 +2,7 @@ import express from "express";
 import "dotenv/config";
 import connectDB from "./db.js";
 import restaurantmodel from "./restaturantModel.js";
-import items from "./itemsModel.js";
+import menuItems from "./itemsModel.js";
 
 const app = express();
 const port = process.env.PORT;

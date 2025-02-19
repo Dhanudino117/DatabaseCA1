@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+
 const itemsSchema = new mongoose.Schema(
   {
     name: {
@@ -10,15 +11,19 @@ const itemsSchema = new mongoose.Schema(
       required: true,
     },
   },
-
   {
     timestamps: true,
   }
 );
-const menuitems = mongoose.Schema({
-  id: mongoose.ObjectId.String,
+
+const menuItemsSchema = new mongoose.Schema({
+  menuId: {
+    type: mongoose.Schema.Types.ObjectId,
+    unique: true,
+    required: true,
+  },
   items: [itemsSchema],
 });
 
-const items = mongoose.model("items", menuitems);
-export default items;
+const menuItems = mongoose.model("menuItems", menuItemsSchema);
+export default menuItems;
